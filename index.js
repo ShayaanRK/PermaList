@@ -59,7 +59,7 @@ app.post("/edit", (req, res) => {
    const fixTitle = req.body.updatedItemTitle;
 
    db.query(
-      "UPDATE items SET title = '$1' WHERE id=$2;", [fixTitle, fixID], (err) => {
+      "UPDATE items SET title = $1 WHERE id=$2;", [fixTitle, fixID], (err) => {
       if (err) {
          console.error("Error editing item:", err);
          return res.status(500).send("Error editing item in database");
